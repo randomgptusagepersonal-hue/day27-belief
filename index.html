@@ -1,0 +1,1019 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>You Don't Have to Earn My Belief in You · In Your Corner💜✨</title>
+<meta name="theme-color" content="#0C0B0F">
+<link rel="preload" href="inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="lora-italic.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Inter';src:url(inter.woff2) format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Lora';src:url(lora-italic.woff2) format('woff2');font-weight:400 700;font-style:italic;font-display:swap}
+:root{
+  --bg:#0C0B0F;--bg2:#17151C;
+  --cream:#F7F1E7;--soft:#D3CAC2;--dim:#9A928F;--warm:#FFBC8C;--gold:#F6D193;--lav:#C4B4E0;
+  --emoji:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji';
+  --sans:'Inter','Segoe UI',system-ui,sans-serif,var(--emoji);
+  --serif:'Lora',Georgia,serif,var(--emoji);
+}
+*{box-sizing:border-box}
+html{background:var(--bg);overflow-x:clip;-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;color:var(--soft);font:400 18px/1.5 var(--sans);overflow-x:clip}
+[hidden]{display:none!important}
+h1,h2,h3,p{margin:0;padding:0;font:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* ---------- lock: the familiar opening, in the dark ---------- */
+#lock{position:fixed;inset:0;z-index:30;display:flex;overflow-y:auto;padding:24px 20px;background:var(--bg);transition:opacity .9s ease}
+#lock.gone{opacity:0;pointer-events:none}
+.lockin{width:100%;max-width:460px;margin:auto}
+.lockrow{display:flex;align-items:flex-start;gap:16px}
+.tile{flex:none;display:block;width:96px;aspect-ratio:1;overflow:hidden;border-radius:15%;background:radial-gradient(ellipse 72% 72% at 50% 48%,#46306A 0,#261A3D 50%,#110D1A 100%);box-shadow:0 0 0 1px rgba(255,255,255,.05),0 18px 50px rgba(0,0,0,.5)}
+.tile svg{display:block;width:100%;height:100%}
+.tile .halo{animation:breathe 5.5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes breathe{50%{opacity:.72;transform:scale(.94)}}
+.dayno{font-size:12px;font-weight:600;line-height:1.3;letter-spacing:.2em;color:var(--dim)}
+#lock h1{margin:6px 0 9px;font-size:clamp(22px,6vw,26px);font-weight:700;line-height:1.2;letter-spacing:-.015em;color:var(--cream)}
+.pill{display:inline-block;padding:2px 10px;border-radius:7px;background:rgba(255,255,255,.1);color:var(--cream);font-size:12.5px;font-weight:600;line-height:1.55}
+.lsub{margin-top:16px;font:italic 400 17px/1.45 var(--serif);color:var(--soft)}
+#passForm{margin-top:24px}
+#passForm label{display:block;margin-bottom:7px;font-size:14px;line-height:1.3;color:var(--soft)}
+.field{position:relative;display:block}
+#pass{display:block;width:100%;height:52px;padding:0 74px 0 16px;border:1px solid rgba(243,237,227,.26);border-radius:12px;background:var(--bg2);color:var(--cream);font:400 17px/1 var(--sans);outline:0;transition:border-color .2s}
+#pass:focus{border-color:var(--gold)}
+#toggle{position:absolute;right:4px;top:4px;height:44px;min-width:60px;padding:0 10px;border:0;border-radius:9px;background:none;color:var(--soft);font-size:14px;line-height:1;text-decoration:underline;text-underline-offset:3px}
+#unlock{display:block;width:100%;min-height:50px;margin-top:10px;border:0;border-radius:12px;background:var(--cream);color:#17131D;font-size:15px;font-weight:700;line-height:1.2;letter-spacing:.06em;transition:background .2s}
+#unlock:hover{background:#fff}
+#passMsg{min-height:26px;margin-top:12px;font-size:15.5px;line-height:1.5;color:var(--warm)}
+.shake{animation:shake .38s ease}
+@keyframes shake{25%{transform:translateX(-5px)}60%{transform:translateX(4px)}85%{transform:translateX(-2px)}}
+
+/* ---------- the world behind and around the words ----------
+   Text sits at z 1. On phones the veil (z 2) lets words slip away underneath
+   the structure, which is drawn on the canvas (z 3) with clicks passing through.
+   In the last part the canvas drops behind the words and becomes the background. */
+#wash{position:fixed;left:50%;bottom:-46vmax;z-index:0;width:130vmax;height:84vmax;margin-left:-65vmax;border-radius:50%;background:radial-gradient(closest-side,rgba(226,124,82,.2),rgba(118,80,168,.13) 55%,rgba(118,80,168,0));pointer-events:none}
+#stage{position:fixed;left:0;top:0;z-index:3;display:block;width:100%;height:100vh;height:100lvh;pointer-events:none}
+#veil{position:fixed;left:0;right:0;top:0;z-index:2;height:53vh;height:53svh;background:linear-gradient(to bottom,var(--bg) 84%,rgba(12,11,15,0));pointer-events:none;transition:opacity 1.1s ease}
+#grain{position:fixed;inset:0;z-index:4;opacity:.055;pointer-events:none}
+.back #stage{z-index:0}
+.back #veil{opacity:0}
+#word{position:fixed;left:50%;top:0;z-index:5;width:max-content;max-width:90vw;transform:translateX(-50%);font-size:clamp(22px,5.6vw,28px);font-weight:700;line-height:1.2;letter-spacing:-.01em;color:var(--cream);text-align:center;text-shadow:0 0 22px rgba(255,170,104,.75),0 0 4px var(--bg);opacity:0;transition:opacity .28s ease;pointer-events:none}
+#word.on{opacity:1}
+
+/* ---------- the words ---------- */
+#page{position:relative;z-index:1}
+.panel{display:flex;flex-direction:column;justify-content:center;min-height:62vh;min-height:62svh;padding:6vh 22px;padding:6svh 22px}
+.panel.short{min-height:30vh;min-height:30svh;padding-top:0}
+#hero{justify-content:flex-end;min-height:100vh;min-height:100svh;padding-top:51vh;padding-top:51svh;padding-bottom:7vh}
+.say{font-size:clamp(23px,5.7vw,30px);font-weight:700;line-height:1.2;letter-spacing:-.016em;color:var(--cream);text-wrap:balance}
+.q{font:italic 400 clamp(19px,4.7vw,22px)/1.42 var(--serif);color:var(--soft);text-wrap:pretty}
+.ln+.ln{margin-top:.62em}
+.ln+.say,.say+.ln{margin-top:.85em}
+.say+.say{margin-top:.5em}
+.q.bright{color:var(--cream)}
+.huge{font-size:clamp(34px,9.2vw,50px);font-weight:700;line-height:1.08;letter-spacing:-.026em;color:var(--gold);text-shadow:0 0 36px rgba(255,170,104,.42)}
+.kick{display:flex;align-items:center;gap:10px;margin-bottom:15px;font-size:11.5px;font-weight:600;line-height:1.35;letter-spacing:.17em;color:var(--warm)}
+.kick::before{content:'';flex:none;width:18px;height:1px;background:currentColor}
+.title{margin-bottom:26px;font-size:13px;letter-spacing:.2em;color:var(--lav)}
+.title::before{display:none}
+.note{width:fit-content;padding:7px 14px;border-radius:9px;background:rgba(255,255,255,.1);color:var(--cream);font-size:clamp(18px,4.6vw,20px);font-weight:700;line-height:1.3;transform:rotate(-1.4deg)}
+.pct{padding-bottom:3px;background:linear-gradient(90deg,var(--gold) 37%,rgba(255,255,255,.22) 37%) left bottom/100% 2px no-repeat;color:var(--gold)}
+.more{display:block;width:22px;height:22px;margin-top:22px;color:var(--dim);animation:nudge 2.4s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateY(5px)}}
+.js .ln{opacity:0;translate:0 8px;transition:opacity 1s ease var(--d,0s),translate 1s ease var(--d,0s)}
+.js .in .ln,.js .in.ln{opacity:1;translate:0 0}
+
+/* the "keep building" moment */
+#keep{align-self:flex-start;min-height:56px;margin-top:20px;padding:0 26px;border:1px solid rgba(255,210,150,.62);border-radius:13px;background:rgba(255,190,130,.13);color:var(--cream);font-size:17px;font-weight:700;line-height:1.2;box-shadow:0 0 34px rgba(255,160,96,.2);transition:background .2s,box-shadow .2s}
+#keep:hover{background:rgba(255,190,130,.24);box-shadow:0 0 44px rgba(255,160,96,.34)}
+
+/* the last part: the structure is the background now */
+.endpart{align-items:center;text-align:center;text-shadow:0 0 14px var(--bg),0 0 3px var(--bg)}
+.endpart>div{width:100%;max-width:600px}
+.endpart .say{text-wrap:balance}
+.endpart .q{color:var(--cream);text-wrap:balance}
+.short-q+.short-q{margin-top:.2em}
+.last{margin-top:1.15em}
+.settle{margin-top:1.2em!important}
+.sign{margin-top:1.1em!important;font-size:19px;font-weight:700;color:var(--lav)}
+#beyond{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;min-height:100vh;min-height:100svh;padding:0 22px max(9vh,74px)}
+#back{min-height:48px;padding:10px 20px;border:1px solid rgba(243,237,227,.3);border-radius:12px;background:rgba(12,11,15,.6);color:var(--cream);font-size:16px;font-weight:600;line-height:1.3;opacity:0;transition:opacity 1.6s ease,background .2s}
+#back.on,#back:focus{opacity:1}
+#back:hover{background:rgba(255,255,255,.1)}
+
+#mus{position:fixed;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));z-index:15;display:flex;align-items:center;justify-content:center;gap:2px;width:42px;height:42px;padding:0;border:1px solid rgba(243,237,227,.22);border-radius:50%;background:rgba(23,21,28,.9);color:var(--cream)}
+#mus svg{width:15px;height:15px}
+#mus i{display:none;width:3px;height:14px;background:var(--gold);border-radius:2px;transform-origin:bottom;animation:bar 1.3s ease-in-out infinite}
+#mus i:nth-child(3){animation-delay:-.45s}#mus i:nth-child(4){animation-delay:-.85s}
+#mus.on svg{display:none}#mus.on i{display:block}
+@keyframes bar{50%{transform:scaleY(.4)}}
+
+/* desktop and sideways phones: visual on the left, words on the right */
+@media (min-width:760px){
+  #veil{display:none}
+  .panel{width:min(500px,41%);min-height:82vh;margin-left:53%;padding:9vh 0}
+  .panel.short{min-height:34vh}
+  #hero{min-height:100vh;padding-top:9vh;padding-bottom:9vh;justify-content:center}
+  .say{font-size:clamp(25px,2.6vw,33px)}
+  .q{font-size:clamp(19px,1.75vw,22px)}
+  .huge{font-size:clamp(40px,4.6vw,62px)}
+  .endpart{width:auto;margin-left:0;padding-left:32px;padding-right:32px}
+  #word{font-size:30px}
+}
+/* a big desktop screen opens with the light dead centre, words beneath it */
+@media (min-width:760px) and (min-height:600px){
+  #hero{width:auto;margin-left:0;padding:0 32px 7vh;align-items:center;justify-content:flex-end;text-align:center}
+  #hero>div{max-width:680px}
+  #hero .more{margin-left:auto;margin-right:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  .tile .halo,.more,.shake{animation:none!important}
+  .js .ln{translate:none;transition:opacity .4s ease}
+  #lock{transition:opacity .3s ease}
+  #veil,#back,#word{transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- LOCK -->
+<section id="lock" aria-labelledby="lockT">
+  <div class="lockin">
+    <div class="lockrow">
+      <span class="tile" id="tile" aria-hidden="true"></span>
+      <div>
+        <p class="dayno">DAY 27</p>
+        <h1 id="lockT">You Don't Have to Earn My Belief in You</h1>
+        <span class="pill">Encouragement</span>
+      </div>
+    </div>
+    <p class="lsub">some things don't need proof before they're believed. ♡</p>
+    <form id="passForm" novalidate>
+      <label for="pass">our secret word for today</label>
+      <span class="field">
+        <input id="pass" type="password" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" aria-describedby="passMsg">
+        <button id="toggle" type="button" aria-pressed="false" aria-label="Show the password">show</button>
+      </span>
+      <button id="unlock" type="submit">UNLOCK ♡</button>
+      <p id="passMsg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<div id="wash" aria-hidden="true"></div>
+<div id="veil" aria-hidden="true"></div>
+<canvas id="stage" role="img" aria-label="A tiny warm light in the dark. As the page goes on, lines connect around it and a glowing structure slowly takes shape."></canvas>
+<div id="grain" aria-hidden="true"></div>
+<p id="word" aria-live="polite"></p>
+
+<main id="page" hidden>
+  <h2 class="vh" id="pageT" tabindex="-1">You Don't Have to Earn My Belief in You</h2>
+
+  <!-- THE IDEA -->
+  <section class="panel" id="hero" data-stage="idea">
+    <div class="beat">
+      <p class="ln say" data-wait="4.2">“I think this is my favourite part.”</p>
+      <p class="ln say" data-wait="1.7">“the part where something is still becoming.”</p>
+      <p class="ln q" data-wait="1">before everyone else can see what it is.</p>
+      <p class="ln q">before there's a finished version.</p>
+      <p class="ln q">before there's a result to point at.</p>
+      <p class="ln q bright">you already started building it.</p>
+      <svg class="ln more" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- PERSONAL -->
+  <section class="panel" data-stage="you">
+    <div class="beat">
+      <p class="ln say">“and yk what, Ammu?”</p>
+      <p class="ln say" data-wait="1.2">“I don't need the finished version to believe in you.”</p>
+      <p class="ln q" data-wait=".6">I don't need to wait for the company to become huge.</p>
+      <p class="ln q">I don't need to wait for the next milestone.</p>
+      <p class="ln q">I don't need a list of achievements.</p>
+      <p class="ln q">I don't need proof.</p>
+    </div>
+  </section>
+  <section class="panel" data-stage="seen">
+    <div class="beat">
+      <p class="ln huge">“I've already seen you.”</p>
+    </div>
+  </section>
+
+  <!-- I'VE SEEN YOU BUILD -->
+  <section class="panel" data-stage="p1" aria-labelledby="buildT">
+    <div class="beat">
+      <h2 class="ln kick title" id="buildT">“I'VE SEEN YOU BUILD”</h2>
+      <h3 class="ln kick">PART 01 — THE IDEA</h3>
+      <p class="ln q">I've seen you take an idea seriously enough to actually do something with it.</p>
+    </div>
+  </section>
+  <section class="panel" data-stage="p2">
+    <div class="beat">
+      <h3 class="ln kick">PART 02 — THE FIGURING IT OUT</h3>
+      <p class="ln q">I've seen you figure things out as you go.</p>
+      <p class="ln q">Not because everything was handed to you with instructions.</p>
+      <p class="ln q">but because apparently your brain's favourite response to a problem is just... “okay, let's see.” 😂</p>
+    </div>
+  </section>
+  <section class="panel" data-stage="p3">
+    <div class="beat">
+      <h3 class="ln kick">PART 03 — THE RIDICULOUS AMOUNT OF THINGS</h3>
+      <p class="ln q">I've watched you somehow have five things going on at once and still casually decide there's probably room for one more.</p>
+    </div>
+  </section>
+  <section class="panel short" data-stage="p3b">
+    <div class="beat">
+      <p class="ln note">“bro, respectfully... HOW.” 😂</p>
+    </div>
+  </section>
+  <section class="panel" data-stage="p4">
+    <div class="beat">
+      <h3 class="ln kick">PART 04 — THE STARTING FROM SCRATCH</h3>
+      <p class="ln q">And now you're building something that's yours.</p>
+      <p class="ln q">Something that didn't exist in this form before you decided to make it exist.</p>
+      <p class="ln say" data-wait="1.1">“that's a pretty incredible thing.”</p>
+    </div>
+  </section>
+
+  <!-- KEEP BUILDING -->
+  <section class="panel" data-stage="build" id="buildPanel">
+    <div class="beat">
+      <p class="ln say" id="keepAsk"></p>
+    </div>
+    <button id="keep" type="button"></button>
+    <svg class="more" id="keepDone" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg>
+  </section>
+
+  <!-- THE RESULT ISN'T THE POINT -->
+  <section class="panel" data-stage="story">
+    <div class="beat">
+      <h2 class="ln say" id="storyT" tabindex="-1">“And that's why I don't need to know how the story ends.”</h2>
+      <p class="ln q" data-wait=".6">I don't know exactly what this company will become.</p>
+      <p class="ln q">I don't know how many times you'll change direction.</p>
+      <p class="ln q">I don't know which ideas will become the big ones.</p>
+      <p class="ln q">I don't know what the next few years will look like.</p>
+      <p class="ln say" data-wait=".7">“but I know who is building it.”</p>
+      <p class="ln q bright" data-wait="1.3">and honestly? that's enough for me.</p>
+    </div>
+  </section>
+
+  <!-- KANMANI -->
+  <section class="panel" data-stage="kanmani">
+    <div class="beat">
+      <p class="ln q">I'm not here to be your business consultant.</p>
+      <p class="ln q">you already have enough people for that. 😂</p>
+      <p class="ln q bright" data-wait=".5">I'm just your Kanmani.</p>
+      <p class="ln q">the annoying person in the corner who gets ridiculously happy when you tell me about something you're building...</p>
+      <p class="ln q">who will listen to your explanations even when I understand approximately <span class="pct">37%</span> of what you're talking about...</p>
+      <p class="ln q">and who will still look at you and think,</p>
+      <p class="ln say" data-wait=".9">“yeah. that's my Ammu.” 💜</p>
+    </div>
+  </section>
+
+  <!-- THE BIG REVEAL -->
+  <section class="panel" data-stage="reveal">
+    <div class="beat">
+      <h2 class="ln huge">“you don't have to earn my belief in you.”</h2>
+      <p class="ln q bright" data-wait="1.2">You already have it.</p>
+      <p class="ln q" data-wait=".7">before the next win.</p>
+      <p class="ln q">before the next project.</p>
+      <p class="ln q">before the next stage.</p>
+      <p class="ln q">before anyone else gets to see what you're building.</p>
+      <p class="ln say" data-wait=".8">“I've already got your back.”</p>
+    </div>
+  </section>
+
+  <!-- THE LAST PART -->
+  <section class="panel endpart" data-stage="final">
+    <div class="beat">
+      <p class="ln say">Ammu,</p>
+      <p class="ln q short-q">go build your thing.</p>
+      <p class="ln q short-q">Make it messy.</p>
+      <p class="ln q short-q">Make it ambitious.</p>
+      <p class="ln q short-q">Change your mind.</p>
+      <p class="ln q short-q">Try something ridiculous.</p>
+      <p class="ln q short-q">figure things out.</p>
+      <p class="ln q short-q">learn as you go.</p>
+      <p class="ln q short-q">make mistakes.</p>
+      <p class="ln q short-q">build it again.</p>
+      <p class="ln q bright settle">whatever the road looks like, I'll be here somewhere in your corner, ridiculously proud that you decided to take the road in the first place.</p>
+    </div>
+    <div class="beat last">
+      <p class="ln say">I don't need the ending to believe in the beginning.</p>
+      <p class="ln say" data-wait="1.3">I already believe in you.</p>
+    </div>
+    <div class="beat last">
+      <p class="ln say">Now go make that dream annoyingly real. 😂💜</p>
+      <p class="ln sign">— your Kanmani</p>
+    </div>
+  </section>
+
+  <!-- THE BEGINNING -->
+  <section id="beyond" data-stage="far">
+    <button id="back" type="button">Back to the Countdown →</button>
+  </section>
+</main>
+
+<audio id="song" src="song.mp3" preload="auto" loop></audio>
+<button id="mus" type="button" hidden aria-pressed="false" aria-label="Play music">
+  <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M5 2.500v13L15.500 9z" fill="currentColor"/></svg><i></i><i></i><i></i>
+</button>
+
+<script>
+/* =====================================================================
+   DAY 27 SETTINGS.
+
+   DAY27_PASSWORD: put your chosen password here. This is the only place
+   it is stored. Capital letters and stray spaces don't matter.
+   This page has no server, so the password is a gate for the experience,
+   not real security: keep the link private.
+
+   COUNTDOWN_URL: the full link "Back to the Countdown →" should open. The
+   project has no countdown page yet. While this is empty, the button goes
+   back to the top of this page instead.
+
+   KEEP_BUILDING: the words for the "keep building" moment. Change them
+   here, or add and remove pieces.
+
+   MUSIC: song.mp3 in this folder is an original instrumental made for this
+   page. To use a different song, replace it with a file of the same name.
+
+   Every other line of the letter is plain text further down this file.
+   ===================================================================== */
+const DAY27_PASSWORD = 'it-is-you';
+const COUNTDOWN_URL = '';
+const KEEP_BUILDING = {
+  ask: '“wanna see something?”',
+  button: 'keep building →',
+  pieces: ['ideas', 'work', 'decisions', 'patience', 'learning', 'trying', 'changing', 'showing up'],
+};
+
+/* What the structure looks like while each part of the page is being read.
+   b:     how much of it is built (0 to 1)
+   loose: how visible the pieces not yet connected are
+   glow:  how bright the light at the centre is
+   lit:   how much the finished surfaces shine
+   plan:  how much of the blueprint drawing around it shows
+   grid:  how visible the blueprint paper is
+   sats:  how many small side-projects are connected to it
+   zoom:  size. corner: the little light in the corner, which is you.
+   dim:   how faint it is (for when it sits behind words).
+   pos:   where it sits: center, side, back, or far. */
+const STAGES = {
+  idea:    { b: .055, loose: .15, glow: .2,  plan: .15, grid: .35, pos: 'center' },
+  you:     { b: .1,   loose: .17, glow: .26, plan: .3,  grid: .5 },
+  seen:    { b: .2,   loose: .14, glow: .42, plan: .45, grid: .6, ripple: 1 },
+  p1:      { b: .27,  loose: .13, glow: .36, plan: .55, grid: .7 },
+  p2:      { b: .44,  loose: .11, glow: .42, plan: .7,  grid: .75 },
+  p3:      { b: .6,   loose: .08, glow: .48, plan: .8,  grid: .8, sats: 5, zoom: .82, orb: 1.45 },
+  p3b:     { b: .62,  loose: .08, glow: .5,  plan: .8,  grid: .8, sats: 6, zoom: .82, orb: 1.45 },
+  p4:      { b: .75,  loose: .05, glow: .55, plan: .9,  grid: .8, sats: 6, zoom: .92, orb: 1.3 },
+  build:   { b: .78,  loose: .03, glow: .55, plan: .9,  grid: .8, sats: 6, zoom: .92, orb: 1.3, shards: 1 },
+  story:   { b: 1,    glow: .74, lit: .55, plan: .6, grid: .5, sats: 6, orb: 1.25 },
+  kanmani: { b: 1,    glow: .68, lit: .5,  plan: .6, grid: .5, sats: 6, orb: 1.25, corner: 1 },
+  reveal:  { b: 1,    glow: 1,   lit: 1,   plan: 1,  grid: .85, sats: 6, orb: 1.25, zoom: 1.04, corner: 1, ripple: 1 },
+  final:   { b: 1,    glow: .55, lit: .5,  plan: .25, grid: .25, sats: 6, orb: 1.25, corner: 1, dim: .24, pos: 'back' },
+  far:     { b: 1,    glow: .72, lit: .85, sats: 6, orb: 1.25, corner: 1, grid: .15, expand: 1, pos: 'far' },
+};
+
+(() => {
+const $ = s => document.querySelector(s);
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const norm = s => s.trim().toLowerCase();
+const clamp = (v, a = 0, b = 1) => v < a ? a : v > b ? b : v;
+const smooth = p => p * p * (3 - 2 * p);
+document.documentElement.classList.add('js');
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+$('#keepAsk').textContent = KEEP_BUILDING.ask;
+$('#keep').textContent = KEEP_BUILDING.button;
+
+/* ---------- the same random numbers every visit, so it's always the same structure ---------- */
+let seed = 27112026;
+const rnd = () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+
+/* ---------- the structure: a small inner form, an outer lattice, spokes between ---------- */
+const nodes = [{ x: 0, y: 0, z: 0 }], edges = [], faces = [];
+const PHI = (1 + Math.sqrt(5)) / 2;
+const ICO_V = [[-1, PHI, 0], [1, PHI, 0], [-1, -PHI, 0], [1, -PHI, 0], [0, -1, PHI], [0, 1, PHI], [0, -1, -PHI], [0, 1, -PHI], [PHI, 0, -1], [PHI, 0, 1], [-PHI, 0, -1], [-PHI, 0, 1]];
+const ICO_F = [[0, 11, 5], [0, 5, 1], [0, 1, 7], [0, 7, 10], [0, 10, 11], [1, 5, 9], [5, 11, 4], [11, 10, 2], [10, 7, 6], [7, 1, 8], [3, 9, 4], [3, 4, 2], [3, 2, 6], [3, 6, 8], [3, 8, 9], [4, 9, 5], [2, 4, 11], [6, 2, 10], [8, 6, 7], [9, 8, 1]];
+const unit = v => { const l = Math.hypot(v[0], v[1], v[2]); return [v[0] / l, v[1] / l, v[2] / l]; };
+const addN = (v, r) => { nodes.push({ x: v[0] * r, y: v[1] * r, z: v[2] * r }); return nodes.length - 1; };
+const edgeSet = new Set();
+const addE = (a, b) => { const k = a < b ? a + '_' + b : b + '_' + a; if (a !== b && !edgeSet.has(k)) { edgeSet.add(k); edges.push({ a, b }); } };
+// inner form
+const innerIdx = ICO_V.map(v => addN(unit(v), .44 * (1 + (rnd() - .5) * .1)));
+ICO_F.forEach(f => { addE(innerIdx[f[0]], innerIdx[f[1]]); addE(innerIdx[f[1]], innerIdx[f[2]]); addE(innerIdx[f[2]], innerIdx[f[0]]); });
+// outer lattice: each triangle split into four
+const outerDirs = [], outerIdx = [], mid = new Map();
+const outerV = d => { outerDirs.push(d); const i = addN(d, 1 + (rnd() - .5) * .07); outerIdx.push(i); return i; };
+const baseO = ICO_V.map(v => outerV(unit(v)));
+const midOf = (a, b) => {
+  const k = a < b ? a + '_' + b : b + '_' + a;
+  if (!mid.has(k)) { const A = ICO_V[a], B = ICO_V[b]; mid.set(k, outerV(unit([A[0] + B[0], A[1] + B[1], A[2] + B[2]]))); }
+  return mid.get(k);
+};
+ICO_F.forEach(f => {
+  const [a, b, c] = f, ab = midOf(a, b), bc = midOf(b, c), ca = midOf(c, a), A = baseO[a], B = baseO[b], C = baseO[c];
+  [[A, ab, ca], [B, bc, ab], [C, ca, bc], [ab, bc, ca]].forEach(t => {
+    faces.push(t);
+    addE(t[0], t[1]); addE(t[1], t[2]); addE(t[2], t[0]);
+  });
+});
+// the light at the centre reaches the inner form, the inner form reaches the outer
+[0, 5, 8].forEach(i => addE(0, innerIdx[i]));
+innerIdx.forEach((n, i) => addE(n, baseO[i]));
+// build order: each new line starts from something already there, closest to the middle first
+const order = [], placed = new Set([0]), left = edges.slice();
+const scored = left.map(e => { const A = nodes[e.a], B = nodes[e.b]; return Math.hypot((A.x + B.x) / 2, (A.y + B.y) / 2, (A.z + B.z) / 2) + rnd() * .22; });
+while (left.length) {
+  let best = -1, bs = 9;
+  for (let i = 0; i < left.length; i++) if ((placed.has(left[i].a) || placed.has(left[i].b)) && scored[i] < bs) { bs = scored[i]; best = i; }
+  const e = left.splice(best, 1)[0]; scored.splice(best, 1);
+  if (!placed.has(e.a)) { const t = e.a; e.a = e.b; e.b = t; }
+  placed.add(e.a); placed.add(e.b);
+  order.push(e);
+}
+const N = order.length;
+const adj = nodes.map(() => []);
+nodes.forEach(n => { n.first = 1e9; });
+order.forEach((e, i) => {
+  const A = nodes[e.a], B = nodes[e.b], mx = (A.x + B.x) / 2, my = (A.y + B.y) / 2, mz = (A.z + B.z) / 2, ml = Math.hypot(mx, my, mz) || 1, push = .35 + rnd() * .55;
+  e.ox = mx / ml * push + (rnd() - .5) * .38; e.oy = my / ml * push + (rnd() - .5) * .38; e.oz = mz / ml * push + (rnd() - .5) * .38;
+  e.ph = rnd() * 6.28; e.i = i;
+  A.first = Math.min(A.first, i); B.first = Math.min(B.first, i);
+  adj[e.a].push(i); adj[e.b].push(i);
+});
+nodes[0].first = -5;
+
+/* ---------- the little tile on the lock screen: the finished form, still ---------- */
+(() => {
+  const yaw = .55, pit = .36, cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pit), sp = Math.sin(pit);
+  const P = nodes.map(n => { const x = n.x * cy + n.z * sy, z = -n.x * sy + n.z * cy, y = n.y * cp - z * sp, d = n.y * sp + z * cp; return [200 + x * 132, 200 + y * 132, (d + 1) / 2]; });
+  const lines = order.map(e => { const a = P[e.a], b = P[e.b], d = (a[2] + b[2]) / 2; return `<path d="M${a[0].toFixed(1)} ${a[1].toFixed(1)}L${b[0].toFixed(1)} ${b[1].toFixed(1)}" stroke="${d > .55 ? '#FFDDA8' : '#C98CB0'}" stroke-opacity="${(.22 + d * .72).toFixed(2)}" stroke-width="${(1.1 + d * 1.6).toFixed(1)}"/>`; }).join('');
+  $('#tile').innerHTML = `<svg viewBox="0 0 400 400" aria-hidden="true"><defs><radialGradient id="hl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF0CC"/><stop offset=".16" stop-color="#FFB56B" stop-opacity=".85"/><stop offset=".46" stop-color="#E7714F" stop-opacity=".3"/><stop offset=".76" stop-color="#9A5FB2" stop-opacity=".1"/><stop offset="1" stop-color="#9A5FB2" stop-opacity="0"/></radialGradient></defs><circle class="halo" cx="200" cy="200" r="190" fill="url(#hl)"/><g fill="none" stroke-linecap="round">${lines}</g><circle cx="200" cy="200" r="13" fill="#FFF7E2"/></svg>`;
+})();
+
+/* ---------- the texture over everything ---------- */
+(() => {
+  const c = document.createElement('canvas'); c.width = c.height = 128;
+  const x = c.getContext('2d'), d = x.createImageData(128, 128);
+  for (let i = 0; i < d.data.length; i += 4) { const v = rnd() > .5 ? 255 : 0; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = rnd() * 110; }
+  x.putImageData(d, 0, 0);
+  $('#grain').style.backgroundImage = `url(${c.toDataURL()})`;
+})();
+
+/* ---------- drawing ---------- */
+const cv = $('#stage'), ctx = cv.getContext('2d');
+let W = 0, H = 0, dpr = 1, wide = false, lite = false;
+
+function sprite(size, stops) {
+  const c = document.createElement('canvas'); c.width = c.height = size;
+  const x = c.getContext('2d'), g = x.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+  stops.forEach(s => g.addColorStop(s[0], s[1]));
+  x.fillStyle = g; x.fillRect(0, 0, size, size);
+  return c;
+}
+const SPR = {
+  dot: sprite(48, [[0, 'rgba(255,248,226,1)'], [.14, 'rgba(255,224,170,.85)'], [.4, 'rgba(255,170,104,.22)'], [1, 'rgba(255,150,90,0)']]),
+  lav: sprite(48, [[0, 'rgba(246,238,255,1)'], [.16, 'rgba(206,184,245,.85)'], [.45, 'rgba(160,126,224,.25)'], [1, 'rgba(150,110,220,0)']]),
+  amb: sprite(256, [[0, 'rgba(255,178,108,.62)'], [.2, 'rgba(232,118,78,.3)'], [.48, 'rgba(144,88,178,.13)'], [1, 'rgba(110,80,170,0)']]),
+  core: sprite(128, [[0, 'rgba(255,252,238,1)'], [.14, 'rgba(255,233,180,.95)'], [.36, 'rgba(255,176,102,.42)'], [1, 'rgba(255,140,90,0)']]),
+};
+let gridSpr = null;
+function makeGrid() {
+  const size = 720, c = document.createElement('canvas'); c.width = c.height = size;
+  const x = c.getContext('2d'), cell = 30;
+  for (let i = 0; i <= size / cell; i++) {
+    const big = i % 4 === 0;
+    x.strokeStyle = big ? 'rgba(255,220,180,.13)' : 'rgba(205,190,240,.055)';
+    x.lineWidth = 1;
+    x.beginPath(); x.moveTo(i * cell + .5, 0); x.lineTo(i * cell + .5, size); x.moveTo(0, i * cell + .5); x.lineTo(size, i * cell + .5); x.stroke();
+  }
+  x.globalCompositeOperation = 'destination-in';
+  const g = x.createRadialGradient(size / 2, size / 2, size * .12, size / 2, size / 2, size / 2);
+  g.addColorStop(0, 'rgba(0,0,0,1)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+  x.fillStyle = g; x.fillRect(0, 0, size, size);
+  gridSpr = c;
+}
+makeGrid();
+
+/* side projects, each a small form of its own, tied to the main one */
+const OCT = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]];
+const OCT_E = [[0, 2], [0, 3], [0, 4], [0, 5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]];
+const SATS = [0, 1, 2, 3, 4, 5].map(i => ({ a: i * 1.047 + .35, tilt: (i % 2 ? .42 : -.38) + i * .05, sp: .1 + (i % 3) * .018, s: .11 + (i % 3) * .018, tie: outerIdx[(i * 7 + 3) % outerIdx.length], ph: i * 1.3 }));
+
+/* the pieces that fly in for "keep building" */
+const PIECES = KEEP_BUILDING.pieces.map((w, i, all) => {
+  const late = order[Math.floor(N * .8 + (N * .2 - 1) * (i + 1) / all.length)];
+  return { w, a: (i / all.length) * 6.283 - 1.2 + (i % 2 ? .24 : -.1), r: 1.16 + (i % 3) * .1, node: late.b, state: 'wait', t0: 0, ph: rnd() * 6.28 };
+});
+const FLY_MS = 820, STEP_MS = 1120;
+let doneN = 0, running = false;
+
+/* drifting dust, for depth */
+const DUST = Array.from({ length: 54 }, () => ({ x: rnd(), y: rnd(), d: .25 + rnd() * .75, ph: rnd() * 6.28, sp: .004 + rnd() * .012 }));
+/* the wider constellation at the end: built to fit the screen */
+let far = [];
+function makeFar() {
+  const n = W < 760 ? 74 : 128, cx = W * .5, cy = H * (wide ? .45 : .42), R = R0() * (wide ? .46 : .6), s = 27 + n;
+  const save = seed; seed = s;
+  const pts = [];
+  for (let i = 0; i < n; i++) {
+    let best = null, bd = -1;
+    for (let k = 0; k < 7; k++) {
+      const x = (rnd() - .5) * (W + 60), y = (rnd() - .5) * (H + 60);
+      if (Math.hypot(x + cx - W / 2, y + cy - H / 2) < R * 1.55) continue;
+      let d = 1e9;
+      pts.forEach(p => { d = Math.min(d, Math.hypot(p.x - x, p.y - y)); });
+      if (d > bd) { bd = d; best = { x, y }; }
+    }
+    if (best) pts.push(best);
+  }
+  pts.forEach(p => { p.dist = Math.hypot(p.x, p.y); });
+  pts.sort((a, b) => a.dist - b.dist);
+  pts.forEach((p, i) => {
+    p.ph = rnd() * 6.28; p.hub = i % 9 === 4; p.size = 2 + rnd() * 3;
+    p.links = [];
+    if (i < 5) { p.links.push(-1); return; }
+    const near = pts.slice(0, i).map((q, j) => [Math.hypot(q.x - p.x, q.y - p.y), j]).sort((a, b) => a[0] - b[0]);
+    p.links.push(near[0][1]);
+    if (near[1] && rnd() < .42) p.links.push(near[1][1]);
+  });
+  far = pts;
+  seed = save;
+}
+
+function R0() { return wide ? Math.min(W * .175, H * .33) : Math.min(W * .4, H * .21); }
+function camFor(pos) {
+  if (pos === 'back') return wide ? [.5, .5, 1.3] : [.5, .47, 1.08];
+  if (pos === 'far') return wide ? [.5, .45, .46] : [.5, .42, .6];
+  if (pos === 'center' && wide && H >= 600) return [.5, .29, 1];
+  return wide ? [.255, .5, 1] : [.5, .25, 1];
+}
+
+const C = { b: 0, loose: .15, glow: .1, lit: 0, plan: 0, grid: 0, sats: 0, orb: 1.45, zoom: 1, cx: .5, cy: .36, camz: 1, dim: 1, corner: 0, expand: 0, shards: 0, kick: 0 };
+const T = { ...C, b: 0, glow: .2 };
+const RATE = { b: 1.0, loose: .9, glow: 1.1, lit: .9, plan: .9, grid: .9, sats: 1.2, orb: .8, zoom: .8, cx: .9, cy: .9, camz: .8, dim: 1.1, corner: 1, shards: 1.6, kick: 2.2 };
+const rip = [];
+let current = 'idea', time = 0, last = 0, raf = 0, started = false, mx = 0, my = 0, tmx = 0, tmy = 0, scrollY0 = 0;
+const trav = Array.from({ length: 12 }, () => ({ e: -1, dir: 0, t: 1 }));
+
+function resize() {
+  const w = cv.clientWidth, h = cv.clientHeight;
+  if (w === W && h === H && cv.width) return;
+  W = w; H = h; wide = W >= 760;
+  dpr = lite ? 1 : Math.min(devicePixelRatio || 1, 2);
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+  applyStage();
+  if (started) { snapCam(); makeFar(); if (RM) render(); }
+}
+function snapCam() { C.cx = T.cx; C.cy = T.cy; C.camz = T.camz; }
+
+function applyStage() {
+  const s = STAGES[current] || {};
+  const c = camFor(s.pos || 'side');
+  Object.assign(T, { b: s.b || 0, loose: s.loose || 0, glow: s.glow || 0, lit: s.lit || 0, plan: s.plan || 0, grid: s.grid || 0, sats: s.sats || 0, orb: s.orb || 1.3, zoom: s.zoom || 1, dim: s.dim || 1, corner: s.corner || 0, expand: s.expand || 0, shards: s.shards || 0, cx: c[0], cy: c[1], camz: c[2] });
+  if (current === 'build') {
+    const f = doneN / PIECES.length;
+    T.b = .78 + .22 * f; T.glow = .55 + .3 * f; T.lit = .62 * f; T.loose = .03 * (1 - f); T.shards = 1;
+  }
+  document.body.classList.toggle('back', s.pos === 'back' || s.pos === 'far');
+  if (RM) { Object.keys(C).forEach(k => { if (k in T) C[k] = T[k]; }); C.expand = T.expand; }
+}
+function setStage(name) {
+  if (name === current) return;
+  current = name;
+  applyStage();
+  if (STAGES[name].ripple) ripple(1);
+  else if (!RM) ripple(.35);
+  const order = Object.keys(STAGES);
+  if (order.indexOf(name) > order.indexOf('build') && doneN < PIECES.length) runBuild(true);
+  if (name === 'far') setTimeout(() => $('#back').classList.add('on'), RM ? 0 : 5200);
+  if (RM) render();
+}
+function ripple(s) { if (!RM) rip.push({ t: 0, s }); }
+
+const P = new Float64Array(nodes.length * 3);
+let cY = 1, sY = 0, cP = 1, sP = 0, Px = 0, Py = 0, Pd = 0, CX = 0, CY = 0, RR = 100;
+function proj(x, y, z) {
+  const x1 = x * cY + z * sY, z1 = -x * sY + z * cY, y1 = y * cP - z1 * sP, z2 = y * sP + z1 * cP, k = 1 / (1 - z2 * .17);
+  Px = CX + x1 * RR * k; Py = CY + y1 * RR * k; Pd = clamp((z2 + 1) / 2);
+}
+
+const lineWarm = ['#7E62B0', '#C07EA2', '#F4BC8E', '#FFE7C2'], lineAlpha = [.34, .55, .8, 1], lineW = [.7, .9, 1.15, 1.55];
+
+function render() {
+  const dimA = C.dim, s = clamp(RR / 170, .72, 1.5);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+  const sc = scrollY0;
+  const yaw = RM ? .6 : time * .085 + sc * .00062 + mx * .16, pitch = RM ? .34 : .34 + Math.sin(time * .13) * .06 + my * .08;
+  cY = Math.cos(yaw); sY = Math.sin(yaw); cP = Math.cos(pitch); sP = Math.sin(pitch);
+  CX = C.cx * W + mx * 9; CY = C.cy * H + my * 7;
+  RR = R0() * C.zoom * C.camz;
+  const beat = RM ? 1 : 1 + Math.sin(time * 1.25) * .05;
+
+  /* ambient light */
+  ctx.globalCompositeOperation = 'lighter';
+  const ab = RR * (1.9 + 2.8 * C.glow) * beat, aa = (.18 + .72 * C.glow) * (.55 + .45 * dimA);
+  ctx.globalAlpha = clamp(aa);
+  ctx.drawImage(SPR.amb, CX - ab, CY - ab, ab * 2, ab * 2);
+
+  /* blueprint paper */
+  ctx.globalCompositeOperation = 'source-over';
+  if (C.grid > .01) {
+    const g = RR * 3.5, ox = -(sc * .035 % 30) - mx * 5, oy = -(sc * .05 % 30) - my * 5;
+    ctx.globalAlpha = C.grid;
+    ctx.drawImage(gridSpr, CX - g + ox, CY - g + oy, g * 2, g * 2);
+  }
+
+  /* blueprint marks: construction circles and corner ticks */
+  const half = Math.min(RR * 1.28, CX - 14, W - CX - 14);
+  if (C.plan > .01) {
+    ctx.strokeStyle = '#FFD7A8'; ctx.lineWidth = 1;
+    ctx.globalAlpha = .3 * C.plan * dimA;
+    ctx.setLineDash([2, 7]); ctx.lineDashOffset = RM ? 0 : -time * 6;
+    ctx.beginPath(); ctx.arc(CX, CY, RR * 1.12, -1.57, -1.57 + 6.284 * clamp(C.plan * 1.25)); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.globalAlpha = .17 * C.plan * dimA;
+    ctx.beginPath(); ctx.arc(CX, CY, RR * .62, 1.2, 1.2 + 6.284 * clamp(C.plan * 1.6 - .2)); ctx.stroke();
+    ctx.globalAlpha = .22 * C.plan * dimA;
+    const t = 15 * s, top = CY - half, bot = CY + half, le = CX - half, ri = CX + half;
+    ctx.beginPath();
+    [[le, top, 1, 1], [ri, top, -1, 1], [le, bot, 1, -1], [ri, bot, -1, -1]].forEach(k => {
+      ctx.moveTo(k[0] + t * k[2], k[1]); ctx.lineTo(k[0], k[1]); ctx.lineTo(k[0], k[1] + t * k[3]);
+    });
+    const marks = Math.floor(10 * clamp(C.plan * 1.6 - .5));
+    for (let i = 1; i <= marks; i++) { const x = le + (ri - le) * i / 11, l = i % 5 ? 3 : 6; ctx.moveTo(x, top); ctx.lineTo(x, top + l); }
+    ctx.stroke();
+  }
+
+  /* dust */
+  ctx.globalCompositeOperation = 'lighter';
+  const dustN = wide ? DUST.length : 32;
+  for (let i = 0; i < dustN; i++) {
+    const d = DUST[i], x = ((d.x + (RM ? 0 : Math.sin(time * d.sp * 6 + d.ph) * .012)) * W + mx * 16 * d.d), yr = d.y - (RM ? 0 : time * d.sp) - sc * .00002 * d.d, y = ((yr % 1) + 1) % 1 * H;
+    const z = 1.6 + d.d * 4;
+    ctx.globalAlpha = (.1 + .3 * d.d) * (RM ? .8 : .6 + .4 * Math.sin(time * .9 + d.ph));
+    ctx.drawImage(SPR.dot, x - z, y - z, z * 2, z * 2);
+  }
+
+  /* project every point once */
+  for (let i = 0; i < nodes.length; i++) { const n = nodes[i]; proj(n.x, n.y, n.z); P[i * 3] = Px; P[i * 3 + 1] = Py; P[i * 3 + 2] = Pd; }
+  const built = C.b * N, W_E = 3;
+
+  /* surfaces, once it's whole */
+  if (C.lit > .01) {
+    const paths = [new Path2D(), new Path2D(), new Path2D()], alphas = [.016, .036, .07];
+    faces.forEach((f, i) => {
+      const d = (P[f[0] * 3 + 2] + P[f[1] * 3 + 2] + P[f[2] * 3 + 2]) / 3;
+      const k = paths[Math.min(2, Math.floor(clamp(d + (RM ? 0 : Math.sin(time * .55 + i * 1.9) * .24)) * 3))];
+      k.moveTo(P[f[0] * 3], P[f[0] * 3 + 1]); k.lineTo(P[f[1] * 3], P[f[1] * 3 + 1]); k.lineTo(P[f[2] * 3], P[f[2] * 3 + 1]); k.closePath();
+    });
+    ctx.fillStyle = '#FFB268';
+    paths.forEach((p, i) => { ctx.globalAlpha = alphas[i] * C.lit * dimA; ctx.fill(p); });
+  }
+
+  /* lines */
+  const buckets = [new Path2D(), new Path2D(), new Path2D(), new Path2D()];
+  ctx.lineCap = 'round';
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.strokeStyle = '#FFD9A8';
+  for (let i = 0; i < N; i++) {
+    const e = order[i], p = clamp((built - i) / W_E);
+    const ax = P[e.a * 3], ay = P[e.a * 3 + 1], ad = P[e.a * 3 + 2], bx = P[e.b * 3], by = P[e.b * 3 + 1], bd = P[e.b * 3 + 2];
+    if (p >= 1) {
+      const k = buckets[Math.min(3, Math.floor((ad + bd) * 2))];
+      k.moveTo(ax, ay); k.lineTo(bx, by);
+      continue;
+    }
+    if (p <= 0 && C.loose < .012) continue;
+    const q = smooth(p), off = 1 - q, wob = RM ? 0 : Math.sin(time * .35 + e.ph) * .05, A = nodes[e.a], B = nodes[e.b];
+    const fx = (e.ox + wob) * off, fy = (e.oy - wob) * off, fz = e.oz * off;
+    const lf = .42 + .58 * q, mx1 = (A.x + B.x) / 2, my1 = (A.y + B.y) / 2, mz1 = (A.z + B.z) / 2;
+    proj(mx1 + (A.x - mx1) * lf + fx, my1 + (A.y - my1) * lf + fy, mz1 + (A.z - mz1) * lf + fz);
+    const x1 = Px, y1 = Py, d1 = Pd;
+    proj(mx1 + (B.x - mx1) * lf + fx, my1 + (B.y - my1) * lf + fy, mz1 + (B.z - mz1) * lf + fz);
+    ctx.globalAlpha = (C.loose + (1 - C.loose) * q) * (.35 + .65 * (d1 + Pd) / 2) * dimA;
+    ctx.lineWidth = (.8 + q * .5) * s;
+    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(Px, Py); ctx.stroke();
+    if (p > 0 && p < 1) { ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = .9 * Math.sin(p * 3.14) * dimA; const z = 9 * s; ctx.drawImage(SPR.dot, Px - z, Py - z, z * 2, z * 2); ctx.globalCompositeOperation = 'source-over'; }
+  }
+  for (let k = 0; k < 4; k++) {
+    if (!lite && k > 1) { ctx.strokeStyle = '#FFB070'; ctx.lineWidth = (lineW[k] * 4.4) * s; ctx.globalAlpha = (.05 + .1 * C.glow) * dimA; ctx.stroke(buckets[k]); }
+    ctx.strokeStyle = lineWarm[k]; ctx.lineWidth = lineW[k] * s; ctx.globalAlpha = lineAlpha[k] * dimA;
+    ctx.stroke(buckets[k]);
+  }
+
+  /* the light at the centre */
+  ctx.globalCompositeOperation = 'lighter';
+  const cz = RR * (.1 + .52 * C.glow) * beat * (1 + C.kick * .22);
+  ctx.globalAlpha = clamp(.8 + .2 * C.glow) * (.55 + .45 * dimA);
+  ctx.drawImage(SPR.core, CX - cz, CY - cz, cz * 2, cz * 2);
+
+  /* points */
+  for (let i = 1; i < nodes.length; i++) {
+    const v = clamp((built - nodes[i].first - 1) / 3);
+    if (v <= 0) continue;
+    const d = P[i * 3 + 2], z = (2.6 + d * 6.4) * s * (.6 + .4 * v);
+    ctx.globalAlpha = v * (.28 + .72 * d) * dimA;
+    ctx.drawImage(SPR.dot, P[i * 3] - z, P[i * 3 + 1] - z, z * 2, z * 2);
+  }
+
+  /* small sparks walking along what's already built: it's alive */
+  if (!RM && built > 4) {
+    const count = lite ? 5 : Math.min(trav.length, 2 + Math.floor(C.b * 12));
+    for (let i = 0; i < count; i++) {
+      const t = trav[i];
+      t.t += .022 + i * .0011;
+      if (t.t >= 1 || t.e < 0) {
+        const from = t.e >= 0 ? (t.dir ? order[t.e].a : order[t.e].b) : -1, opts = from >= 0 ? adj[from].filter(j => j < built - W_E && j !== t.e) : [];
+        t.e = opts.length ? opts[Math.floor(rnd() * opts.length)] : Math.floor(rnd() * Math.max(1, built - W_E));
+        t.dir = from >= 0 && opts.length ? (order[t.e].a === from ? 0 : 1) : 0; t.t = 0;
+      }
+      const e = order[t.e], a = t.dir ? e.b : e.a, b = t.dir ? e.a : e.b, x = P[a * 3] + (P[b * 3] - P[a * 3]) * t.t, y = P[a * 3 + 1] + (P[b * 3 + 1] - P[a * 3 + 1]) * t.t;
+      const z = 7 * s;
+      ctx.globalAlpha = Math.sin(t.t * 3.14) * .85 * dimA;
+      ctx.drawImage(SPR.dot, x - z, y - z, z * 2, z * 2);
+    }
+  }
+
+  /* the other things going on at once */
+  if (C.sats > .01) {
+    SATS.forEach((m, i) => {
+      const v = smooth(clamp(C.sats - i));
+      if (v <= 0) return;
+      const a = m.a + (RM ? 0 : time * m.sp), dr = C.orb * (1 + (1 - v) * .5) * (wide ? 1 : .86);
+      const sx = Math.cos(a) * dr, sz = Math.sin(a) * dr * Math.cos(m.tilt), sy = Math.sin(a) * dr * Math.sin(m.tilt) + Math.sin(m.ph) * .12;
+      const spin = (RM ? 0 : time * .3) + m.ph, cs = Math.cos(spin), sn = Math.sin(spin), r = m.s * v;
+      proj(sx, sy, sz); const hx = Px, hy = Py, hd = Pd;
+      ctx.globalCompositeOperation = 'source-over';
+      const n = nodes[m.tie], ti = m.tie * 3;
+      ctx.strokeStyle = '#E8B48C'; ctx.lineWidth = .8 * s; ctx.globalAlpha = .34 * v * dimA;
+      ctx.setLineDash([3, 5]); ctx.lineDashOffset = RM ? 0 : -time * 9;
+      ctx.beginPath(); ctx.moveTo(hx, hy); ctx.lineTo(P[ti], P[ti + 1]); ctx.stroke();
+      ctx.setLineDash([]);
+      const pts = OCT.map(o => { proj(sx + (o[0] * cs - o[2] * sn) * r, sy + o[1] * r, sz + (o[0] * sn + o[2] * cs) * r); return [Px, Py]; });
+      ctx.strokeStyle = '#FFD9A8'; ctx.lineWidth = .9 * s; ctx.globalAlpha = (.35 + .6 * hd) * v * dimA;
+      ctx.beginPath();
+      OCT_E.forEach(q => { ctx.moveTo(pts[q[0]][0], pts[q[0]][1]); ctx.lineTo(pts[q[1]][0], pts[q[1]][1]); });
+      ctx.stroke();
+      ctx.globalCompositeOperation = 'lighter';
+      const z = (5 + 6 * hd) * s * v;
+      ctx.globalAlpha = (.5 + .5 * hd) * v * dimA;
+      ctx.drawImage(SPR.dot, hx - z, hy - z, z * 2, z * 2);
+    });
+  }
+
+  /* you, in the corner */
+  if (C.corner > .01) {
+    const x = CX + half, y = CY + half;
+    const pulse = RM ? 1 : .8 + .2 * Math.sin(time * 1.1), z = 11 * s * pulse;
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.strokeStyle = '#C4B4E0'; ctx.lineWidth = .8 * s; ctx.globalAlpha = .32 * C.corner * dimA;
+    ctx.setLineDash([1, 6]); ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(CX + (x - CX) * .5, CY + (y - CY) * .5); ctx.stroke(); ctx.setLineDash([]);
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.globalAlpha = C.corner * clamp(dimA + .3);
+    ctx.drawImage(SPR.lav, x - z, y - z, z * 2, z * 2);
+  }
+
+  /* "keep building" pieces */
+  const now = performance.now();
+  PIECES.forEach((m, i) => {
+    if (m.state === 'done') return;
+    if (m.state === 'wait' && C.shards < .01) return;
+    const wob = RM ? 0 : Math.sin(time * .7 + m.ph) * 6;
+    const hx = Math.max(RR * m.r * Math.cos(m.a), -CX + 18), hxx = Math.min(hx, W - CX - 18);
+    const x0 = CX + hxx + wob, y0 = CY + RR * m.r * .96 * Math.sin(m.a) - wob * .6;
+    let x = x0, y = y0, f = 0;
+    if (m.state === 'fly') {
+      f = RM ? 1 : smooth(clamp((now - m.t0) / FLY_MS));
+      const tx = P[m.node * 3], ty = P[m.node * 3 + 1], bx = (x0 + tx) / 2 + (y0 - ty) * .22, by = (y0 + ty) / 2 - (x0 - tx) * .22;
+      const u = 1 - f;
+      x = u * u * x0 + 2 * u * f * bx + f * f * tx; y = u * u * y0 + 2 * u * f * by + f * f * ty;
+    }
+    const v = m.state === 'wait' ? C.shards : 1, z = (11 + f * 8) * s;
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.globalAlpha = v * (RM ? .95 : .72 + .28 * Math.sin(time * 1.9 + m.ph));
+    ctx.drawImage(SPR.dot, x - z, y - z, z * 2, z * 2);
+    const rot = (RM ? 0 : time * .5) + m.ph, l = 7 * s;
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.strokeStyle = '#FFE7C2'; ctx.lineWidth = 1 * s; ctx.globalAlpha = v * .85;
+    ctx.beginPath();
+    for (let k = 0; k < 3; k++) { const an = rot + k * 2.094, px = x + Math.cos(an) * l, py = y + Math.sin(an) * l; k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+    ctx.closePath(); ctx.stroke();
+  });
+
+  /* it was never just one thing */
+  if (C.expand > .002 && far.length) {
+    const M = far.length, grown = C.expand * M, ox = CX, oy = CY, link = new Path2D();
+    far.forEach((p, i) => {
+      const v = clamp((grown - i) / 5);
+      if (v <= 0) return;
+      const x = ox + p.x, y = oy + p.y;
+      p.links.forEach(j => {
+        const to = j < 0 ? null : far[j], tx = to ? ox + to.x : CX + (p.x / (p.dist || 1)) * RR * .92, ty = to ? oy + to.y : CY + (p.y / (p.dist || 1)) * RR * .92;
+        const e = smooth(clamp(v * 1.6));
+        link.moveTo(tx, ty); link.lineTo(tx + (x - tx) * e, ty + (y - ty) * e);
+      });
+    });
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.strokeStyle = '#E9C4A0'; ctx.lineWidth = .8 * s; ctx.globalAlpha = .3;
+    ctx.stroke(link);
+    ctx.globalCompositeOperation = 'lighter';
+    far.forEach((p, i) => {
+      const v = clamp((grown - i - 2) / 4);
+      if (v <= 0) return;
+      const tw = RM ? 1 : .68 + .32 * Math.sin(time * .9 + p.ph), z = (p.hub ? 11 : 4 + p.size) * s * tw * v;
+      ctx.globalAlpha = v * tw;
+      ctx.drawImage(i % 7 === 3 ? SPR.lav : SPR.dot, ox + p.x - z, oy + p.y - z, z * 2, z * 2);
+    });
+  }
+
+  /* the pulse when something connects */
+  if (rip.length) {
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.strokeStyle = '#FFD9A8';
+    for (let i = rip.length - 1; i >= 0; i--) {
+      const r = rip[i], a = 1 - r.t;
+      ctx.globalAlpha = a * a * .48 * r.s * dimA; ctx.lineWidth = 1.3 * s;
+      ctx.beginPath(); ctx.arc(CX, CY, RR * (.14 + r.t * 1.5), 0, 6.284); ctx.stroke();
+    }
+  }
+  ctx.globalAlpha = 1;
+  ctx.globalCompositeOperation = 'source-over';
+}
+
+let slow = 0, frames = 0;
+function loop(now) {
+  raf = requestAnimationFrame(loop);
+  const raw = (now - last) / 1000, dt = Math.min(.05, raw);
+  last = now; time += dt;
+  mx += (tmx - mx) * (1 - Math.exp(-dt * 2.4)); my += (tmy - my) * (1 - Math.exp(-dt * 2.4));
+  scrollY0 += (scrollY - scrollY0) * (1 - Math.exp(-dt * 5));
+  for (const k in RATE) C[k] += (T[k] - C[k]) * (1 - Math.exp(-dt * RATE[k]));
+  C.expand = T.expand ? Math.min(1, C.expand + dt / 17) : Math.max(0, C.expand - dt / 1.4);
+  for (let i = rip.length - 1; i >= 0; i--) { rip[i].t += dt / 2.1; if (rip[i].t >= 1) rip.splice(i, 1); }
+  C.kick *= Math.exp(-dt * 1.2);
+  render();
+  /* slower phones get a lighter version instead of a stutter */
+  if (!lite && raw < .25) {
+    frames++; if (raw > .034) slow++;
+    if (frames >= 120) { if (slow > 72) { lite = true; W = 0; resize(); } frames = 0; slow = 0; }
+  }
+}
+function start() {
+  started = true;
+  resize();
+  snapCam();
+  makeFar();
+  scrollY0 = scrollY;
+  if (RM) { C.b = T.b; render(); return; }
+  last = performance.now();
+  raf = requestAnimationFrame(loop);
+  /* the tiny light pulses. a line appears. another connects to it. another. */
+  T.b = 0;
+  [[1200, .009], [2100, .018], [2950, .03], [3900, .055]].forEach(([ms, b]) => setTimeout(() => {
+    if (current !== 'idea') return;
+    T.b = b; ripple(.5); C.kick = 1;
+  }, ms));
+}
+addEventListener('resize', () => { if (started) resize(); });
+if (!RM && matchMedia('(pointer:fine)').matches) addEventListener('pointermove', e => { tmx = (e.clientX / innerWidth - .5) * 2; tmy = (e.clientY / innerHeight - .5) * 2; }, { passive: true });
+if (RM) addEventListener('scroll', () => {}, { passive: true });
+
+/* ---------- keep building: not a game, just something taking shape ---------- */
+const word = $('#word'), keep = $('#keep');
+function placeWord() {
+  const y = Math.min((T.cy * H) + R0() * T.zoom * T.camz * 1.08, H - 64);
+  word.style.top = y + 'px';
+  word.style.left = (T.cx * 100) + '%';
+}
+function runBuild(fast) {
+  if (running || doneN >= PIECES.length) return;
+  running = true;
+  const hadFocus = document.activeElement === keep;
+  keep.hidden = true;
+  if (!fast) placeWord();
+  const step = () => {
+    const m = PIECES[doneN];
+    m.state = 'fly'; m.t0 = performance.now();
+    if (!fast) { word.textContent = m.w; word.classList.add('on'); }
+    if (RM) render();
+    setTimeout(() => {
+      m.state = 'done'; doneN++;
+      C.kick = 1; ripple(.55);
+      applyStage();
+      if (RM) render();
+      if (!fast) setTimeout(() => word.classList.remove('on'), Math.max(0, STEP_MS - FLY_MS - 70));
+      if (doneN < PIECES.length) { setTimeout(step, fast ? 40 : STEP_MS - FLY_MS); return; }
+      running = false;
+      ripple(1);
+      $('#keepDone').removeAttribute('hidden');
+      if (hadFocus) $('#storyT').focus({ preventScroll: true });
+    }, fast ? 160 : FLY_MS);
+  };
+  step();
+}
+keep.addEventListener('click', () => runBuild(false));
+
+/* ---------- lock ---------- */
+const lock = $('#lock'), pass = $('#pass'), passMsg = $('#passMsg'), toggle = $('#toggle');
+const NOPES = ['hmm, that’s not it, Ammu. try again? 🥹', 'nope. nice try though, sir. 😭', 'still no. i believe in you, but not that password. 💜'];
+let nopes = 0, unlocked = false;
+if (matchMedia('(pointer:fine)').matches) pass.focus();
+toggle.addEventListener('click', () => {
+  const showing = pass.type === 'text';
+  pass.type = showing ? 'password' : 'text';
+  toggle.textContent = showing ? 'show' : 'hide';
+  toggle.setAttribute('aria-pressed', String(!showing));
+  toggle.setAttribute('aria-label', showing ? 'Show the password' : 'Hide the password');
+  pass.focus();
+});
+$('#passForm').addEventListener('submit', e => {
+  e.preventDefault();
+  if (unlocked) return;
+  if (!pass.value.trim()) { passMsg.textContent = 'you have to type something first, bro. 😭'; pass.focus(); return; }
+  if (norm(pass.value) !== norm(DAY27_PASSWORD)) {
+    passMsg.textContent = NOPES[nopes++ % NOPES.length];
+    const f = $('.field'); f.classList.remove('shake'); void f.offsetWidth; f.classList.add('shake');
+    pass.select();
+    return;
+  }
+  unlocked = true;
+  playSong();                                            // inside the tap, so the phone allows sound
+  passMsg.textContent = '';
+  pass.blur();
+  $('#page').hidden = false;
+  scrollTo(0, 0);
+  start();
+  watch();
+  lock.classList.add('gone');
+  setTimeout(() => { lock.hidden = true; $('#pageT').focus({ preventScroll: true }); }, RM ? 300 : 900);
+});
+
+/* ---------- each thought arrives on its own, with a breath before the big ones ---------- */
+document.querySelectorAll('.beat').forEach(beat => {
+  let t = 0;
+  beat.querySelectorAll('.ln').forEach(l => {
+    t += +(l.dataset.wait || 0);
+    if (!RM) l.style.setProperty('--d', t.toFixed(2) + 's');
+    t += RM ? 0 : Math.min(1.25, .3 + l.textContent.length * .011);
+  });
+});
+function watch() {
+  const beats = document.querySelectorAll('.beat'), panels = document.querySelectorAll('[data-stage]');
+  if (!('IntersectionObserver' in window)) { beats.forEach(b => b.classList.add('in')); setStage('reveal'); return; }
+  const show = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); show.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px', threshold: .01 });
+  beats.forEach(b => show.observe(b));
+  const f = innerWidth >= 760 ? 50 : 68;
+  const stg = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) setStage(e.target.dataset.stage); }), { rootMargin: `-${f}% 0px -${100 - f}% 0px` });
+  panels.forEach(p => stg.observe(p));
+}
+
+/* ---------- leaving ---------- */
+$('#back').addEventListener('click', () => {
+  if (COUNTDOWN_URL) { location.href = COUNTDOWN_URL; return; }
+  scrollTo({ top: 0, behavior: RM ? 'auto' : 'smooth' });
+  $('#pageT').focus({ preventScroll: true });
+});
+
+/* ---------- music: one song, starts inside the unlock tap ---------- */
+const song = $('#song'), mus = $('#mus');
+let wantSong = false, fadeTimer = 0, bad = false, needFade = false;
+const VOL = .5;
+function fadeIn() {
+  clearInterval(fadeTimer);
+  const t0 = Date.now();
+  song.volume = 0;
+  fadeTimer = setInterval(() => {
+    const p = Math.max(0, Math.min(1, (Date.now() - t0) / 2500));
+    song.volume = VOL * p;
+    if (p >= 1) clearInterval(fadeTimer);
+  }, 60);
+}
+function drawMus(on) {
+  mus.classList.toggle('on', on);
+  mus.setAttribute('aria-pressed', String(on));
+  mus.setAttribute('aria-label', on ? 'Pause music' : 'Play music');
+}
+function playSong() { if (bad) return; wantSong = true; needFade = true; song.volume = 0; song.play().catch(() => {}); }
+song.addEventListener('error', () => { bad = true; wantSong = false; mus.hidden = true; });
+song.addEventListener('playing', () => { mus.hidden = false; drawMus(true); if (needFade) { needFade = false; fadeIn(); } });
+song.addEventListener('pause', () => drawMus(false));
+mus.addEventListener('click', () => {
+  wantSong = song.paused;
+  if (wantSong) { if (song.volume === 0) song.volume = VOL; song.play().catch(() => {}); } else song.pause();
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) song.pause(); else if (wantSong && !bad) song.play().catch(() => {});
+});
+})();
+</script>
+</body>
+</html>
